@@ -137,8 +137,8 @@ public class DatChoActivity extends AppCompatActivity {
                 databaseDatCho = new DatabaseDatCho(getApplicationContext());
                 DatCho user = new DatCho(HoTen,SDT,SLDat, NgayDat,GioDat,mAuth.getUid());
 
-                DatabaseDatCho.insert(user);
-                Toast.makeText(getApplicationContext(), "Đăng Ký Thành Công.", Toast.LENGTH_SHORT).show();
+            //    DatabaseDatCho.insert(user);
+                Toast.makeText(getApplicationContext(), "Thành Công.", Toast.LENGTH_SHORT).show();
             }
         });
 
