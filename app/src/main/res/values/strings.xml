@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">FindCoffee</string>
+    <string name="facebookLink">Khi chọn Đăng Ký, bạn đồng ý với <a href="https://www.facebook.com/dthien232/">Điều khoản sử dụng </a> và <a href="https://www.instagram.com/bdthien232__/">Chính sách bảo mật </a> của FindFood</string>
+    <string name="dangNhapThanhCong">Đăng nhập thành "CONG" :)</string>
+    <string name="taoBoi">Từ nhóm <b>AAHT</b></string>
+    <string name="phienban">Version</string>
+    <string name="dangtai">Loading...</string>
+    <string name="taikhoan">Tài Khoản</string>
+    <string name="matkhau">Mật Khẩu</string>
+    <string name="hovaten">Họ và Tên</string>
+    <string name="dangnhap">Đăng Nhập</string>
+    <string name="dangky">Đăng Ký</string>
+    <string name="loginwithphone">Tiếp tục với số điện thoại</string>
+    <string name="fogetpass">Quên Mật Khẩu</string>
+    <string name="dateofbirth">Ngày Tháng Năm Sinh</string>
+    <string name="phone">Số Điện Thoại</string>
+    <string name="loginwithgoogle">Tiếp tục với Google</string>
+    <string name="loginwithfacebook">Tiếp tục với Facebook</string>
+    <string name="facebook_app_id">293447339057314</string>
+    <string name="fb_login_protocol_scheme">fb293447339057314</string>
+    <string name="dangnhapthatbai">Sai tài khoản, mật khẩu</string>
+    <string name="quenmatkhau">Quên mật khẩu</string>
+    <string name="email">Email</string>
+    <string name="gui">Gửi</string>
+    <string name="thongbaokhongdungdinhdangmatkhau">Email đã nhập không đúng định dạng</string>
+    <string name="thogbaoguiemailkhoiphucthanhcong">Đã gửi email khôi phục vào email của bạn</string>
+    <string name="chhuoikhoiphucmatkhau">Vui lòng nhập email vào ô bên dưới, chúng tôi sẽ gửi mật khẩu mới vào hộp thư của bạn</string>
+
+    <!--Màn hình bắt đầu-->
+
+    <!--Tiêu đề-->
+    <string name="dong1">Đặt món online</string>
+    <string name="dong2">Giao hàng nhanh</string>
+    <string name="dong3">Món gì cũng có</string>
+    <string name="dong4">Giá rẻ bất ngờ</string>
+
+    <!--Mô tả chi tiết-->
+    <string name="moTaDong1">đặt online đỉnk kout nhất mọi thời đại</string>
+    <string name="moTaDong2">Giao hàng nhanh hơn tốc độ trở mặt của người yêu cũ</string>
+    <string name="moTaDong4">CAM KẾT : Trên 1000 đông, dưới MỘT TỶ</string>
+
+    <!--Nút nhấn-->
+    <string name="skip_btn">Bỏ qua</string>
+    <string name="next_btn">Tiếp theo</string>
+    <string name="started">Bắt đầu</string>
+    <string name="caidat">Cài Đặt</string>
+
+</resources>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scrollbars = "vertical"
+    tools:context=".view.DangNhapActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:scrollbars="vertical">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="260dp"
+            android:layout_height="177dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="28dp"
+            android:background="#DEB887"
+            app:srcCompat="@drawable/lgdangnhap1" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="32dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                app:hintEnabled="true"
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Email"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#DEB887"
+                    android:ems="10"
+                    android:hint="@string/taikhoan"
+                    android:inputType="textPersonName"
+                    android:text=""
+                    android:textColor="#DEB887"
+                    android:textColorHint="#DEB887" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                app:hintEnabled="true"
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="#DEB887"
+                    android:ems="10"
+                    android:hint="@string/matkhau"
+                    android:inputType="textPassword"
+                    android:text=""
+                    android:textColor="#DEB887"
+                    android:textColorLink="#DEB887" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/loginBtn"
+            android:layout_width="264dp"
+            android:layout_height="38dp"
+            android:layout_gravity="center"
+            android:background="@drawable/border_item"
+            android:gravity="center"
+            android:text="@string/dangnhap"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_marginBottom="60dp"/>
+
+        <TextView
+            android:id="@+id/btnquenmatkhau"
+            android:layout_width="331dp"
+            android:layout_height="52dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="#FFFFFF"
+            android:gravity="center"
+            android:text="@string/fogetpass"
+            android:textColor="#DEB887"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/btndangky"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="#FFFFFF"
+            android:gravity="center"
+            android:text="@string/dangky"
+            android:textColor="#DEB887"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btnLoginPhone"
+            android:layout_width="264dp"
+            android:layout_height="38dp"
+            android:layout_gravity="center"
+            android:background="@drawable/border_item"
+            android:drawableLeft="@drawable/icon_phone"
+            android:gravity="center"
+            android:text="@string/loginwithphone"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnLoginGoogle"
+            android:layout_width="264dp"
+            android:layout_height="38dp"
+            android:layout_gravity="center"
+            android:background="@drawable/border_item"
+            android:drawableLeft="@drawable/icon_google"
+            android:paddingRight="30dp"
+            android:text="@string/loginwithgoogle"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnLoginFacebook"
+            android:layout_width="264dp"
+            android:layout_height="38dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/border_item"
+            android:drawableLeft="@drawable/icon_facebook"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:text="@string/loginwithfacebook"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</ScrollView>

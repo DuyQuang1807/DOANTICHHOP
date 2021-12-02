@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scrollbars = "vertical"
+    tools:context=".view.QuenMatKhauActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="20dp"
+        android:orientation="vertical"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="32dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtQuenMatKhau"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#FFFFFF"
+                android:gravity="center"
+                android:text="@string/quenmatkhau"
+                android:textColor="#DEB887"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/txtchuoikhoiphuc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:backgroundTint="#FFFFFF"
+                android:gravity="center"
+                android:text="@string/chhuoikhoiphucmatkhau"
+                android:textColor="@color/mauchinh"
+                android:textSize="14sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                app:hintEnabled="true"
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/EmailKhoiPhuc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/mauchinh"
+                    android:drawableTint="#FFFFFF"
+                    android:ems="10"
+                    android:hint="@string/email"
+                    android:inputType="textPersonName"
+                    android:text=""
+                    android:textColor="@color/mauchinh"
+                    android:textColorHint="@color/cam" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnKhoiPhuc"
+            android:layout_width="264dp"
+            android:layout_height="38dp"
+            android:layout_gravity="center"
+            android:background="@drawable/border_item"
+            android:gravity="center"
+            android:text="@string/gui"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"/>
+        <Button
+            android:id="@+id/btnQuayLai"
+            android:layout_width="264dp"
+            android:layout_height="38dp"
+            android:layout_gravity="center"
+            android:background="@drawable/border_item"
+            android:gravity="center"
+            android:text="Quay lại"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="60dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorPrimary">#F05123</color>
+    <color name="colorPrimaryDark">#F05123</color>
+    <color name="colorAccent">#272727</color>
+
+    <color name="lightWhite">#f5f5f5</color>
+    <color name="black">#000</color>
+    <color name="white">#fff</color>
+    <color name="cam">#F05123</color>
+    <color name="resend">#F44336</color>
+
+    <color name="intro_title_color">#000000</color>
+    <color name="colorPrimaryTransparent">#b84e277a</color>
+    <color name="grey_200">#eeeeee</color>
+    <color name="xam">#BEBEC7</color>
+    <color name="mau_trong_suot">#00000000</color>
+
+    <!--Color for button next :)-->
+    <color name="gradient_startColor" tools:ignore="MissingDefaultResource">#4c84ff</color>
+    <color name="gradient_endColor" tools:ignore="MissingDefaultResource">#18a3fe</color>
+
+    <!--Color for tab -->
+    <color name="tab_gray" tools:ignore="MissingDefaultResource">#c0c0c0</color>
+
+    <color name="mauchinh">#DEB887</color>
+</resources>
