@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         imgHinh = (ImageButton) findViewById(R.id.imageViewHinh);
         manhinh = (RelativeLayout) findViewById(R.id.manhinh);
-        manhinh.setBackgroundResource(R.drawable.background);
+     //   manhinh.setBackgroundResource(R.drawable.background);
         imgHinh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

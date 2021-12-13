@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,7 +14,7 @@
         <RelativeLayout
             android:id="@+id/toolbar2"
             android:layout_width="wrap_content"
-            android:layout_height="43dp"
+            android:layout_height="55dp"
             android:background="@color/mauchinh"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme">
@@ -22,14 +22,9 @@
             <TextView
                 android:id="@+id/toolbar_title"
                 style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="158dp"
-                android:layout_marginEnd="170dp"
-                android:layout_marginBottom="11dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
                 android:text="Đặt chỗ"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -42,10 +37,19 @@
 
         </RelativeLayout>
 
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="200dp"
+            android:layout_height="177dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="28dp"
+            android:background="#FBFBFB"
+            app:srcCompat="@drawable/datcho2" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nhập Họ và tên :"
+            android:text="Nhập họ và tên :"
             android:textColor="@color/black"
             android:textSize="20dp" />
 
@@ -53,7 +57,7 @@
             android:id="@+id/edtHotenDC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nhập Họ và tên."
+            android:hint="Nhập họ và tên."
             android:minHeight="48dp" />
 
         <TextView
@@ -132,18 +136,14 @@
 
         <Button
             android:id="@+id/btnDatCho"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:background="@color/mauchinh"
             android:text="Đặt chỗ"
-            android:textSize="30sp" />
+            android:textSize="25dp" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tt"
-            android:text="test"/>
+
 
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

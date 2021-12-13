@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,6 +11,18 @@
         android:orientation="vertical"
         android:padding="10dp">
 
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="28dp"
+            android:background="#DEB887"
+            app:srcCompat="@drawable/lgdangnhap1" />
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="20dp"/>
         <TextView
             android:id="@+id/lbldangky"
             android:layout_width="match_parent"
@@ -21,7 +34,7 @@
 
         <TextView
             android:layout_width="1dp"
-            android:layout_height="20dp"/>
+            android:layout_height="10dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -36,6 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="Nhập email."
             android:inputType="textPersonName"
             android:text=""
             />
@@ -53,6 +67,7 @@
         <EditText
             android:id="@+id/txtpass"
             android:layout_width="match_parent"
+            android:hint="Nhập mật khẩu."
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword"
@@ -73,6 +88,7 @@
             android:id="@+id/txtname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Nhập tên."
             android:ems="10"
             android:inputType="textPersonName"
             android:text=""
@@ -94,6 +110,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="Nhập số điện thoại."
             android:inputType="textPersonName"
             android:text=""
             />

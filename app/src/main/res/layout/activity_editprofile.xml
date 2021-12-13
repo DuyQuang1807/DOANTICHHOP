@@ -25,7 +25,7 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="80dp" />
+            android:layout_height="0dp" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgProfile"
@@ -50,6 +50,23 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Họ tên :"
+            android:textSize="20dp"
+            android:textColor="@color/black"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập họ tên."
+            android:id="@+id/edtHoten"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            />
 
         <TextView
             android:layout_width="match_parent"
@@ -83,17 +100,17 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="20dp" />
+            android:layout_height="40dp" />
 
         <Button
-            android:id="@+id/btnDatCho"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/btnCapNhat"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
             android:layout_gravity="right"
-            android:background="@color/mauchinh"
+            android:background="@drawable/border_item_capnhat"
             android:text="Cập Nhật"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+
+            android:textSize="20sp" />
     </LinearLayout>
 
 </LinearLayout>

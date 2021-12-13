@@ -3,23 +3,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/manhinh"
-    android:background="@drawable/background"
+
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ImageButton
         android:id="@+id/imageViewHinh"
         style="?android:attr/borderlessButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="112dp"
+        android:layout_width="236dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="99dp"
-        android:layout_marginTop="127dp"
+        android:layout_marginTop="250dp"
         android:layout_marginEnd="101dp"
-        android:layout_marginBottom="492dp"
+        android:layout_marginBottom="250dp"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/buttonview" />
+        app:srcCompat="@drawable/bttoncf" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="125dp"
+        android:text="Find Coffee"
+        android:textColor="@color/intro_title_color"
+        android:textSize="32sp"
+        android:layout_marginTop="480dp"/>
 
 </RelativeLayout>

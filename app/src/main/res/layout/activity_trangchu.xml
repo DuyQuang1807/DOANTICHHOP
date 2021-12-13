@@ -33,10 +33,10 @@
                     android:id="@+id/toolbarmanhinhchinh"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    android:background="#DEB887"
-                    app:title="Trang Chính"
                     android:layout_marginBottom="10dp"
-                    android:paddingBottom="10dp">
+                    android:background="#DEB887"
+                    android:paddingBottom="10dp"
+                    app:title="Trang Chính">
 
                     <Button
                         android:id="@+id/dangxuat"
@@ -52,12 +52,11 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_gravity="right"
+                        android:layout_marginRight="15dp"
+                        android:paddingTop="5dp"
                         android:src="@drawable/anvata"
                         app:civ_border_color="#fff"
-                        app:civ_border_width="5dp"
-                        android:paddingTop="5dp"
-                        android:layout_marginRight="15dp"
-                        />
+                        app:civ_border_width="5dp" />
 
                 </androidx.appcompat.widget.Toolbar>
 
@@ -82,7 +81,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="481dp"
                     android:background="#DEB887"
                     android:orientation="vertical">
 
@@ -98,7 +97,8 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rcv_trangchu"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
+                        android:layout_height="207dp"></androidx.recyclerview.widget.RecyclerView>
+
 
                 </LinearLayout>
 

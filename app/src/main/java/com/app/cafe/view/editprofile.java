@@ -38,14 +38,14 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class editprofile extends AppCompatActivity {
 
     Button btnCapNhat;
-    EditText edtDiaChi,edtSoDienThoai;
+    EditText edtDiaChi,edtSoDienThoai,edtHoten;
     TextView edtEmail;
 
     DatabaseUser databaseUser;
     FirebaseStorage storage;
     StorageReference storageReference;
     FirebaseUser firebaseUser;
-    String mail, phone, diachi, anh, pass;
+    String mail, phone, diachi, anh, pass,ten;
     CircleImageView imgProfile;
 
     private Uri filePath;
@@ -59,6 +59,7 @@ public class editprofile extends AppCompatActivity {
         edtDiaChi=findViewById(R.id.edtDiaChi);
         edtEmail=findViewById(R.id.edtEmail);
         edtSoDienThoai=findViewById(R.id.edtSoDienThoai);
+        edtHoten = findViewById(R.id.edtHoten);
         imgProfile = findViewById(R.id.imgProfile);
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -76,13 +77,14 @@ public class editprofile extends AppCompatActivity {
                         phone = lists.get(i).getPhone();
                         pass = lists.get(i).getPassword();
                         anh = lists.get(i).getImage();
+                        ten = lists.get(i).getName();
 //                        ngaysinh = lists.get(i).getNgaysinh();
 //                        gioitinh = lists.get(i).getGioitinh();
                     }
                 }
                 edtDiaChi.setText(diachi);
                 edtEmail.setText(mail);
-//                edtname.setText(name);
+                edtHoten.setText(ten);
                 edtSoDienThoai.setText(phone);
                 if (anh == null) {
                     Picasso.get().load("https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg").into(imgProfile);
@@ -114,11 +116,11 @@ public class editprofile extends AppCompatActivity {
                 if (filePath != null) {
                     String email = edtEmail.getText().toString().trim(); //
                     String phone = edtSoDienThoai.getText().toString().trim();
-//                    String ten = edtname.getText().toString().trim();
+                    String ten = edtHoten.getText().toString().trim();
                     String diachi = edtDiaChi.getText().toString().trim();
 //                    String ngaysinh = edtNgaySinh.getText().toString().trim();
 //                    String gioitinh = txtGioiTinh.getText().toString().trim();
-                    if (email.isEmpty() || phone.isEmpty() || diachi.isEmpty()) {
+                    if (email.isEmpty() || phone.isEmpty() || diachi.isEmpty() || ten.isEmpty()) {
                         Toast.makeText(getApplicationContext(), "Vui lòng nhập đầy đủ các trường", Toast.LENGTH_SHORT).show();
                     } else if (!email.matches("^[a-zA-Z][a-z0-9_\\.]{4,32}@[a-z0-9]{2,}(\\.[a-z0-9]{2,4}){1,2}$")) {
                         Toast.makeText(getApplicationContext(), "Email Không Hợp Lệ", Toast.LENGTH_SHORT).show();
@@ -130,11 +132,11 @@ public class editprofile extends AppCompatActivity {
                 } else  {
                     String email = edtEmail.getText().toString().trim();
                     String phone = edtSoDienThoai.getText().toString().trim();
-//                    String ten = edtname.getText().toString().trim();
+                    String ten = edtHoten.getText().toString().trim();
                     String diachi = edtDiaChi.getText().toString().trim();
 //                    String ngaysinh = edtNgaySinh.getText().toString().trim();
 //                    String gioitinh = txtGioiTinh.getText().toString().trim();
-                    if (email.isEmpty() || phone.isEmpty() || diachi.isEmpty()) {
+                    if (email.isEmpty() || phone.isEmpty() || diachi.isEmpty()|| ten.isEmpty()) {
                         Toast.makeText(getApplicationContext(), "Vui lòng nhập đầy đủ các trường", Toast.LENGTH_SHORT).show();
                     } else if (!email.matches("^[a-zA-Z][a-z0-9_\\.]{4,32}@[a-z0-9]{2,}(\\.[a-z0-9]{2,4}){1,2}$")) {
                         Toast.makeText(getApplicationContext(), "Email Không Hợp Lệ", Toast.LENGTH_SHORT).show();
@@ -143,7 +145,7 @@ public class editprofile extends AppCompatActivity {
                     } else {
                         User store = new User();
                         store.setEmail(edtEmail.getText().toString());
-                        //store.setName(edtname.getText().toString());
+                        store.setName(edtHoten.getText().toString());
                         store.setPhone(edtSoDienThoai.getText().toString());
                         store.setDiachi(edtDiaChi.getText().toString());
                         store.setPassword(pass);
@@ -175,7 +177,7 @@ public class editprofile extends AppCompatActivity {
                     public void onSuccess(Uri uri) {
                         User store = new User();
                         store.setEmail(edtEmail.getText().toString());
-                       // store.setName(edtname.getText().toString());
+                        store.setName(edtHoten.getText().toString());
                         store.setPhone(edtSoDienThoai.getText().toString());
                         store.setDiachi(edtDiaChi.getText().toString());
 //                        store.setNgaysinh(edtNgaySinh.getText().toString());

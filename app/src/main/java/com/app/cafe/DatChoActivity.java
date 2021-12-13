@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -27,6 +28,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -36,8 +39,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import static android.content.ContentValues.TAG;
+
 public class DatChoActivity extends AppCompatActivity {
-    Button btnDatCho, btnTest;
+    Button btnDatCho;
     ImageView btnback;
     EditText edtslbanDC,edtSoDienThoaiDC,edtHotenDC,edtgioDC,edtngaydat;
 
@@ -63,13 +68,13 @@ public class DatChoActivity extends AppCompatActivity {
 
         btnback = findViewById(R.id.btnback);
         btnDatCho = findViewById(R.id.btnDatCho);
-        btnTest = findViewById(R.id.tt);
         edtslbanDC = findViewById(R.id.edtSlbanDC);
         edtHotenDC = findViewById(R.id.edtHotenDC);
         edtSoDienThoaiDC = findViewById(R.id.edtSoDienThoaiDC);
         edtngaydat = findViewById(R.id.edtngaydat);
         edtgioDC = findViewById(R.id.edtgioDC);
         mAuth = FirebaseAuth.getInstance();
+
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
@@ -95,52 +100,41 @@ public class DatChoActivity extends AppCompatActivity {
             }
         });
 
-        databaseDatCho= new DatabaseDatCho(getApplicationContext());
-        databaseDatCho.getAll(new DatChoCallback() {
-            @Override
-            public void onSuccess(ArrayList<DatCho> lists) {
-                for (int i = 0; i < lists.size(); i++) {
-                    if (lists.get(i).getToken() != null && lists.get(i).getToken().equalsIgnoreCase(firebaseUser.getUid())) {
-                        hoten = lists.get(i).getHoTen();
-                        phone = lists.get(i).getSoDienThoai();
-
-
-                    }
-                }
-
-
-            }
-
-            @Override
-            public void onError(String message) {
-
-            }
-        });
-
-
 
         btnDatCho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                add();
+
+                try {
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("DatCho");
+                    final String HoTen = edtHotenDC.getText().toString();
+                    final String SDT = edtSoDienThoaiDC.getText().toString();
+                    final String SLDat = edtslbanDC.getText().toString();
+                    final String NgayDat = edtngaydat.getText().toString();
+                    final String GioDat = edtgioDC.getText().toString();
+
+                    myRef.child(HoTen).child("phone").setValue(SDT);
+                    myRef.child(HoTen).child("SLDat").setValue(SLDat);
+                    myRef.child(HoTen).child("NgayDat").setValue(NgayDat);
+                    myRef.child(HoTen).child("GioDat").setValue(GioDat);
+
+                    Toast.makeText(getApplicationContext(), "Thành Công.", Toast.LENGTH_SHORT).show();
+                    Intent a = new Intent(getApplicationContext(),trangchu.class);
+                    startActivity(a);
+                    finish();
+                }
+                catch (Exception ex)
+                {
+                }
+
+
+                //  DatabaseDatCho.insert(user);
+
             }
         });
 
-        btnTest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final String HoTen = edtHotenDC.getText().toString();
-                final String SDT = edtSoDienThoaiDC.getText().toString();
-                final String SLDat = edtslbanDC.getText().toString();
-                final String NgayDat = edtngaydat.getText().toString();
-                final String GioDat = edtgioDC.getText().toString();
-                databaseDatCho = new DatabaseDatCho(getApplicationContext());
-                DatCho user = new DatCho(HoTen,SDT,SLDat, NgayDat,GioDat,mAuth.getUid());
 
-            //    DatabaseDatCho.insert(user);
-                Toast.makeText(getApplicationContext(), "Thành Công.", Toast.LENGTH_SHORT).show();
-            }
-        });
 
 
 
@@ -152,52 +146,8 @@ public class DatChoActivity extends AppCompatActivity {
             }
         });
     }
-    public void add() {
-        if(filePath!=null){
-
-            final StorageReference imageFolder = storageReference.child("DatCho/"+UUID.randomUUID().toString());
-            imageFolder.putFile(filePath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    imageFolder.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-
-                            DatCho theLoai = new DatCho();
-                            theLoai.setHoTen(edtHotenDC.getText().toString());
-                            theLoai.setSoDienThoai(edtSoDienThoaiDC.getText().toString());
-                            theLoai.setSLBan(edtslbanDC.getText().toString());
-                            theLoai.setNgayDat(edtngaydat.getText().toString());
-                            theLoai.setGioDC(edtgioDC.getText().toString());
-                            theLoai.setToken(mAuth.getUid());
-                            databaseDatCho = new DatabaseDatCho(getApplicationContext());
-                            databaseDatCho.insert(theLoai);
 
 
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(getApplicationContext(),"Thành Công"+e.getMessage(),Toast.LENGTH_SHORT ).show();
-                        }
-                    });
-                }
-            });
-        }
-    }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (
-                 resultCode == RESULT_OK
-                && data != null
-                && data.getData() != null) {
-
-            // Get the Uri of data
-            filePath = data.getData();
-
-        }
-    }
 
 }
