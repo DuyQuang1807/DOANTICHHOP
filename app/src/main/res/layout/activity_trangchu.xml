@@ -7,15 +7,13 @@
     android:background="#F8F8F8"
     android:orientation="vertical"
     android:scrollbars="vertical"
-    tools:context=".trangchu"
-  >
+    tools:context=".trangchu"  >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:scrollbars="vertical"
-        >
+        android:scrollbars="vertical">
         <LinearLayout
             android:id="@+id/drawerlayout"
             android:layout_width="match_parent"
@@ -29,6 +27,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
+
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbarmanhinhchinh"
                     android:layout_width="match_parent"
@@ -36,7 +35,7 @@
                     android:layout_marginBottom="10dp"
                     android:background="#DEB887"
                     android:paddingBottom="10dp"
-                    app:title="Trang Chính">
+                   app:title="Trang Chính">
 
                     <Button
                         android:id="@+id/dangxuat"
@@ -57,9 +56,32 @@
                         android:src="@drawable/anvata"
                         app:civ_border_color="#fff"
                         app:civ_border_width="5dp" />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/map"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="15dp"
+                        android:paddingTop="5dp"
+                        android:src="@drawable/locaition"
+                        app:civ_border_color="#fff"
+                        app:civ_border_width="5dp" />
 
                 </androidx.appcompat.widget.Toolbar>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:hint="Tìm nhà hàng , món ăn bạn thích"
+                        android:textSize="16sp"
+                        android:layout_marginLeft="10dp"
+                        android:imeOptions="actionSearch"
+                        android:id="@+id/edtsearch"
+                        android:enabled="true"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
 
                 <com.smarteist.autoimageslider.SliderView
                     android:id="@+id/imageSlider"
@@ -77,7 +99,10 @@
                     app:sliderIndicatorSelectedColor="#5A5A5A"
                     app:sliderIndicatorUnselectedColor="#FFF"
                     app:sliderScrollTimeInSec="1"
-                    app:sliderStartAutoCycle="true" />
+                    app:sliderStartAutoCycle="true" >
+
+
+                </com.smarteist.autoimageslider.SliderView>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -89,7 +114,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="Quán được yêu thích nhất"
+                        android:text="Quán yêu thích!"
                         android:textColor="#070302"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -97,10 +122,28 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rcv_trangchu"
                         android:layout_width="match_parent"
-                        android:layout_height="207dp"></androidx.recyclerview.widget.RecyclerView>
+                        android:layout_height="153dp"></androidx.recyclerview.widget.RecyclerView>
+                    <TextView
+                        android:id="@+id/txtslogan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="                        Cafe hôm nay "
+                        android:textStyle="bold"
+                        android:textColor="#000"
+                        android:textSize="20sp"
+                        android:layout_marginLeft="10dp"
+                     />
+
+                     <androidx.recyclerview.widget.RecyclerView
+                         android:id="@+id/rcvquan"
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent"
+                         />
+    </LinearLayout>
 
 
-                </LinearLayout>
+
 
             </LinearLayout>
 

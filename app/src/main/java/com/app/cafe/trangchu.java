@@ -1,13 +1,5 @@
 package com.app.cafe;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -16,12 +8,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.app.cafe.Adapter.AdapterViewPayer;
-import com.app.cafe.CallBack.ItemCallback;
 import com.app.cafe.CallBack.UserCallBack;
 import com.app.cafe.Databases.DatabaseItem;
 import com.app.cafe.Databases.DatabaseUser;
@@ -47,8 +47,6 @@ import com.smarteist.autoimageslider.SliderView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -56,9 +54,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class trangchu extends AppCompatActivity {
     Toolbar toolbar;
     Button dangxuat,datcho;
-    CircleImageView anh;
+    TextView edtsearch;
+    CircleImageView anh, map;
     ViewFlipper viewFlipper;
-    RecyclerView recyclerView;
+    RecyclerView recyclerView,recyclerView1,rcvquan;
 //    NavigationView navigationView;
  //   ListView listviewmanhinhchinh;
     DrawerLayout drawerLayout;
@@ -89,10 +88,14 @@ public class trangchu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trangchu);
         sliderView = findViewById(R.id.imageSlider);
+        edtsearch = findViewById(R.id.edtsearch);
         dangxuat = findViewById(R.id.dangxuat);
        // datcho = findViewById(R.id.btnDatcho);
         anh = findViewById(R.id.anh);
+        map = findViewById(R.id.map);
         recyclerView = findViewById(R.id.rcv_trangchu);
+        rcvquan = findViewById(R.id.rcvquan);
+
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -120,6 +123,14 @@ public class trangchu extends AppCompatActivity {
             }
         });
 
+        edtsearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iTimKiem = new Intent(v.getContext(), SearchActivity.class);
+                v.getContext().startActivity(iTimKiem);
+            }
+        });
+
 
 
         dangxuat.setOnClickListener(new View.OnClickListener() {
@@ -136,6 +147,13 @@ public class trangchu extends AppCompatActivity {
             public void onClick(View v) {
                 Intent iCapNhat = new Intent(getApplicationContext(), editprofile.class);
                 startActivity(iCapNhat);
+            }
+        });
+        map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iCapNhat1 = new Intent(getApplicationContext(), MapsActivity.class);
+                startActivity(iCapNhat1);
             }
         });
         Anhxa();
@@ -165,6 +183,7 @@ public class trangchu extends AppCompatActivity {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mDatabaseReference = mFirebaseDatabase.getReference("Item" );
         ShowData();
+
     }
     ArrayList<Model> ItemArrayList;
     private  void  ShowData(){
@@ -217,7 +236,18 @@ public class trangchu extends AppCompatActivity {
         firebaseRecyclerAdapter.startListening();
         recyclerView.setAdapter(firebaseRecyclerAdapter);
 
+//
+//        recyclerView1.setLayoutManager(mlinearLayoutManager);
+//        firebaseRecyclerAdapter.startListening();
+//        recyclerView1.setAdapter(firebaseRecyclerAdapter);
+
+
+//        rcvquan.setLayoutManager(mlinearLayoutManager);
+//        firebaseRecyclerAdapter.startListening();
+//        rcvquan.setAdapter(firebaseRecyclerAdapter);
+
    }
+
 
     protected void onStart(){
 
@@ -226,18 +256,18 @@ public class trangchu extends AppCompatActivity {
 //            firebaseRecyclerAdapter.startListening();
 //        }
     }
-//    private void ActionViewFlipper() {
-//        ArrayList<String> mangquangcao = new ArrayList<>();
-//        mangquangcao.add("https://xuongmocgocongnghiep.com/upload/images/thiet-ke-quan-cafe-dep-02.jpg");
-//        mangquangcao.add("https://cdn.vietnamtours247.com/2019/12/1EE5448A-1DBC-4F9A-B322-5653427E5403-1920x1920.jpeg");
-//        mangquangcao.add("https://tuarts.net/wp-content/uploads/2019/10/79203743_732156290524449_492674440098742272_o-800x600.jpg");
-//        mangquangcao.add("https://dulich9.com/wp-content/uploads/2020/07/Quan-cafe-noi-tieng-o-Nha-Trang-4.jpg");
-//        for (int i=0;i<mangquangcao.size();i++){
-//            ImageView imageView = new ImageView(getApplicationContext());
-//            Picasso.get().load(mangquangcao.get(i)).into(imageView);
-//            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-//        }
-//    }
+    private void ActionViewFlipper() {
+        ArrayList<String> mangquangcao = new ArrayList<>();
+        mangquangcao.add("https://xuongmocgocongnghiep.com/upload/images/thiet-ke-quan-cafe-dep-02.jpg");
+        mangquangcao.add("https://cdn.vietnamtours247.com/2019/12/1EE5448A-1DBC-4F9A-B322-5653427E5403-1920x1920.jpeg");
+        mangquangcao.add("https://tuarts.net/wp-content/uploads/2019/10/79203743_732156290524449_492674440098742272_o-800x600.jpg");
+        mangquangcao.add("https://dulich9.com/wp-content/uploads/2020/07/Quan-cafe-noi-tieng-o-Nha-Trang-4.jpg");
+        for (int i=0;i<mangquangcao.size();i++){
+            ImageView imageView = new ImageView(getApplicationContext());
+            Picasso.get().load(mangquangcao.get(i)).into(imageView);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        }
+    }
     /*----------- Tạo ảnh SliderLoad -----------*/
 
     public void renewItems(SliderView sliderView) {
@@ -275,6 +305,8 @@ public class trangchu extends AppCompatActivity {
         sliderItem.setImageurl("https://1.bp.blogspot.com/-W445RQ2YtbU/YKOI0sIDkzI/AAAAAAAAACA/7r2uGRJFKzkbNjG7i6mZbKaJTLzpNhKwQCNcBGAsYHQ/s970/giamgia.png");
         adapter.addItem(sliderItem);
     }
+
+
 
     @Override
     public void onResume() {

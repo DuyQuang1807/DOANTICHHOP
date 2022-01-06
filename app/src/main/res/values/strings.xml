@@ -44,5 +44,7 @@
     <string name="next_btn">Tiếp theo</string>
     <string name="started">Bắt đầu</string>
     <string name="caidat">Cài Đặt</string>
+    <string name="title_activity_map">Map</string>
+    <string name="title_activity_maps">MapsActivity</string>
 
 </resources>

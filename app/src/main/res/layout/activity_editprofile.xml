@@ -111,6 +111,7 @@
             android:text="Cập Nhật"
 
             android:textSize="20sp" />
+
     </LinearLayout>
 
 </LinearLayout>
