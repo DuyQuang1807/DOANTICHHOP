@@ -72,7 +72,7 @@ public class DatabaseCafe {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-                        if(dataSnapshot.child("idfood").getValue(String.class).equalsIgnoreCase(item.Tenquan())){
+                        if(dataSnapshot.child("Tenquan").getValue(String.class).equalsIgnoreCase(item.getTenquan())){
                             key=dataSnapshot.getKey();
                             mRef.child(key).setValue(item);
                             Toast.makeText(context, "Update Thành Công", Toast.LENGTH_SHORT).show();
@@ -88,12 +88,12 @@ public class DatabaseCafe {
 
             return true;
         }
-        public void delete(final String matheloai){
+        public void delete(final String maquan){
             mRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                        if(dataSnapshot.child("idfood").getValue(String.class).equalsIgnoreCase(matheloai)){
+                        if(dataSnapshot.child("idfood").getValue(String.class).equalsIgnoreCase(maquan)){
                             key=dataSnapshot.getKey();
                             mRef.child(key).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override

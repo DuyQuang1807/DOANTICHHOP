@@ -4,21 +4,28 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.cafe.Model.Cafe;
 import com.app.cafe.Model.Model;
 import com.app.cafe.R;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class YeuthichAdapter extends RecyclerView.Adapter<YeuthichAdapter.ViewHolder> {
+
+    ArrayList<Cafe> categoryList;
+    Context context;
+    String Tag;
+    public YeuthichAdapter(ArrayList<Cafe> categoryList, Context context) {
+        this.categoryList = categoryList;
+        this.context = context;
+    }
 
     private List<Model> mlistItem;
 
@@ -36,11 +43,12 @@ public class YeuthichAdapter extends RecyclerView.Adapter<YeuthichAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Model model = mlistItem.get(position);
+        Cafe categories = categoryList.get(position);
         if (model == null){
             return;
         }
         holder.tvAdress.setText("adress:" +model.getAdress());
-        holder.tvName.setText("name:" +model.getAdress());
+        holder.tvName.setText("name:" +model.getName());
 
 
     }
@@ -48,7 +56,7 @@ public class YeuthichAdapter extends RecyclerView.Adapter<YeuthichAdapter.ViewHo
     @Override
     public int getItemCount() {
         if (mlistItem != null){
-            return mlistItem.size();
+            return categoryList.size();
         }
         return 0;
     }
@@ -65,6 +73,11 @@ public class YeuthichAdapter extends RecyclerView.Adapter<YeuthichAdapter.ViewHo
             tvImage = itemView.findViewById(R.id.tvImage);
 
         }
+    }
+    public void search(ArrayList<Cafe> filllist){
+        categoryList = filllist;
+        notifyDataSetChanged();
+
     }
 
 }

@@ -11,6 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.cafe.Adapter.YeuthichAdapter;
+import com.app.cafe.CallBack.CafeCallBack;
+import com.app.cafe.Databases.DatabaseCafe;
+import com.app.cafe.Model.Cafe;
+
 import java.util.ArrayList;
 
 public class SearchActivity extends AppCompatActivity {
@@ -18,10 +23,11 @@ public class SearchActivity extends AppCompatActivity {
     EditText TF_location;
     Button B_search;
     ImageView backTimKiem;
-    ArrayList<Food> arrayListfood= new ArrayList<>();
-    DatabaseFood databaseFood;
+    ArrayList<Cafe> arrayListcafe= new ArrayList<>();
+
+    DatabaseCafe databaseCafe;
     RecyclerView rcvsearch;
-    FavoriteAdapter favoriteAdapter;
+    YeuthichAdapter yeuthichAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,9 +36,10 @@ public class SearchActivity extends AppCompatActivity {
         backTimKiem = findViewById(R.id.backTimKiem);
         B_search = findViewById(R.id.B_search);
         rcvsearch = findViewById(R.id.rcvsearch);
-        arrayListfood = new ArrayList<>();
+        arrayListcafe = new ArrayList<>();
 
-        databaseFood = new DatabaseFood(SearchActivity.this);
+
+        databaseCafe = new DatabaseCafe(SearchActivity.this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(SearchActivity.this, LinearLayoutManager.VERTICAL, false);
         rcvsearch.setHasFixedSize(true);
         rcvsearch.setLayoutManager(layoutManager);
@@ -51,40 +58,40 @@ public class SearchActivity extends AppCompatActivity {
 //            }
 //        });
         if (TF_location.getText().toString().equals("")){
-            arrayListfood.clear();
-            favoriteAdapter = new FavoriteAdapter(arrayListfood,SearchActivity.this);
-            rcvsearch.setAdapter(favoriteAdapter);
+            arrayListcafe.clear();
+            yeuthichAdapter = new YeuthichAdapter(arrayListcafe,SearchActivity.this);
+            rcvsearch.setAdapter(yeuthichAdapter);
         }
         B_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                databaseFood.getAll(new FoodCallBack() {
+                databaseCafe.getAll((new CafeCallBack() {
                     @Override
-                    public void onSuccess(ArrayList<Food> lists) {
-                        arrayListfood.clear();
+                    public void onSuccess(ArrayList<Cafe> lists) {
+                        arrayListcafe.clear();
                         for (int i =0;i<lists.size();i++){
-                            if (lists.get(i).getNamefood().toLowerCase().contains(TF_location.getText().toString())){
-                                arrayListfood.add(lists.get(i));
-                                favoriteAdapter = new FavoriteAdapter(arrayListfood,SearchActivity.this);
-                                rcvsearch.setAdapter(favoriteAdapter);
+                            if (lists.get(i).getTenquan().toLowerCase().contains(TF_location.getText().toString())){
+                                arrayListcafe.add(lists.get(i));
+                                yeuthichAdapter = new YeuthichAdapter(arrayListcafe,SearchActivity.this);
+                                rcvsearch.setAdapter(yeuthichAdapter);
                             }
 
                         }
-
                     }
 
                     @Override
                     public void onError(String message) {
 
                     }
-                });
+                }));
             }
         });
+
 
         backTimKiem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent iBack = new Intent(getApplicationContext(), MainActivity.class);
+                Intent iBack = new Intent(getApplicationContext(), trangchu.class);
                 startActivity(iBack);
                 finish();
             }
